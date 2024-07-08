@@ -5,7 +5,8 @@
 {% block content %}
 <div class="container py-5">
     <h1>Лента записей</h1>                        
-      {% for post in post %}
+      {% for post in post reversed %}
+        
         <hr>
           <article>
             <ul>
