@@ -1,0 +1,21 @@
+{% if not truncating_text %}
+  <h4>Пост от {{ post.date }}</h4>
+{% else %}
+  <hr>
+{% endif %}
+
+<article>
+  <ul>
+    <li>Место: {{ post.location }}</li>
+    <li>Дата: {{ post.date }}</li>
+    <li>Категория:
+    <a href="{% url 'blog:category_posts' post.category %}"> {{ post.category }}</a>
+    </li>
+  </ul>
+
+  {% if truncating_text %}
+    {{ post.text|truncatewords:10 }}
+  {% else %}
+    {{ post.text|linebreaksbr }}
+  {% endif %}
+</article>
