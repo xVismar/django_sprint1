@@ -1,9 +1,3 @@
-{% if not truncating_text %}
-  <h4>Пост от {{ post.date }}</h4>
-{% else %}
-  <hr>
-{% endif %}
-
 <article>
   <ul>
     <li>Место: {{ post.location }}</li>
@@ -15,6 +9,7 @@
 
   {% if truncating_text %}
     {{ post.text|truncatewords:10 }}
+    <a href="{% url 'blog:post_detail' post.id %}">Читать полный текст</a>
   {% else %}
     {{ post.text|linebreaksbr }}
   {% endif %}

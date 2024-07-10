@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 
 {% block title %}
-{{ post.location }}. {{ post.date }}
+  {{ post.location }}. {{ post.date }}
 {% endblock title %}
 
 {% block content %}
-{% include 'blog/includes/article.html' with truncating_text=False %}
+  <legend>Пост от {{ post.date }}</legend>
+  <hr>
+  {% include 'blog/includes/article.html' with truncating_text=False %}
 {% endblock content %}
